@@ -85,3 +85,11 @@ def get_screens_pixmap(screen_info=None):
     painter.end()
 
     return pixmap
+
+
+if __name__ == "__main__":
+    screen_info = get_screen_info()
+    print(screen_info)
+
+    pixmap = get_screens_pixmap(screen_info)
+    pixmap.save("screenshot.png")
