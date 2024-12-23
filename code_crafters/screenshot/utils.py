@@ -9,7 +9,7 @@ def get_screen_info():
     """
 
     # 获取所有屏幕对象
-    app = QtGui.QGuiApplication()
+    app = QtWidgets.QApplication.instance() or QtGui.QGuiApplication()
     screens = app.screens()
     if not screens:
         raise Exception("未检测到屏幕")
@@ -58,8 +58,7 @@ def get_screens_pixmap(screen_info=None):
 
     # 屏幕截图Pixmap对象
     pixmap = QtGui.QPixmap(
-        screen_info["geometry"].width(),
-        screen_info["geometry"].height()
+        screen_info["geometry"].width(), screen_info["geometry"].height()
     )
     pixmap.fill(QtCore.Qt.transparent)
 
